@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<title>HTML To PDF</title>
+	<link rel="stylesheet" href="htmlTOpdf.css">
+	<script src="htmlTOpdfJavascript.js"></script>
+	<script src="htmlTOpdfscript.js"></script>
+	<script src="JS/addRowButton.js"></script>
+</head>
+<body>
+	<div id="PurchaseOrder">
+		<br><br>
+		<h1>Purchase Order</h1>
+		<br><br>
+		<table style="width:100%">
+			<tr>
+				<td width="150" height="200">Invoice To:
+				<br><input type="text" name="Name"  width="150" height="500"></td>
+				<td> <table style="width:100%">
+					<tr width="250">
+						<td width="100" height="50">Voucher No:
+						<br><input type="text" name="Name" size="20"></td>
+						<td width="100" height="50">Dated:
+						<br><input type="text" name="Name" size="20"></td>
+						
+					</tr>
+					<tr>
+						<td width="100" height="50"> </td>
+						<td width="100" height="50">Mode/Terms of Payment:
+						<input type="text" name="Name" size="10"></td>
+					</tr>
+					<tr>
+						<td width="100" height="50">Supplier’s Ref./Order No.
+						<input type="text" name="Name" size="10"></td>
+						<td width="100" height="50">Other Reference(s):
+						<br><input type="text" name="Name" size="20"></td>
+					</tr>
+				</td>
+				</table>
+			</tr>
+			
+			<tr>
+				<td width="550" height="120">Despatch To:
+				<br><input type="text" name="Name" size="60"></td>
+				<td> <table style="width:100%">
+					<tr>
+						<td width="100" height="50">Despatch through:
+						<br><input type="text" name="Name" size="20"></td>
+						<td width="100" height="50">Destination:
+						<br><input type="text" name="Name" size="20"></td>
+					</tr>
+				</td>
+				</table>
+				<p>Terms of Delivery
+				<br><input type="text" name="Name" size="40"></p>
+			</tr>
+			
+			<tr>
+				<td width="550" height="120">Supplier:
+				<br><input type="text" name="Name" size="60"></td>
+				<td> </td>					
+			</tr>	
+
+			<table style="width:100%">
+				<tr>
+					<th style="width: 20px;">Sr. No.</th>
+					<th style="width: 80px;">Description of Goods</th>
+					<th style="width: 20px;">Due on</th>
+					<th style="width: 20px;">Quantity</th>
+					<th style="width: 20px;">Rate</th>
+					<th style="width: 20px;">per</th>
+					<th style="width: 20px;">Disc. %</th>
+					<th style="width: 20px;">Amount</th>
+				</tr>
+				<tr>
+					<td><br><input type="text" name="Name" size="1" style="width: 20px;">
+					    <br><br><input type="text" name="Name" size="1" style="width: 20px;">
+						<br><br><input type="text" name="Name" size="1" style="width: 20px;"></td>
+					<td><br><input type="text" name="Name" size="10" style="width: 100px;">
+					    <br><br><input type="text" name="Name" size="10" style="width: 100px;">
+						<br><br><input type="text" name="Name" size="10" style="width: 100px;"></td>
+					<td><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10"></td>
+					<td><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10"></td>
+					<td><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10"></td>
+					<td><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10"></td>
+					<td><br><input type="text" name="Name" size="10">	
+						<br><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10"></td>
+					<td><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10">
+						<br><br><input type="text" name="Name" size="10"></td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td>Total</td>
+					<td> </td>
+					<td><input type="text" name="Name" size="10"></td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td><input type="text" name="Name" size="10"></td>
+				</tr>
+			</table>
+			<p>Amount Chargeable (in words): 
+			<br><input type="text" name="Name" size="40"></p>
+			<p> </p>
+			<br><br><br><br><br><br><br><br><br>
+			
+			<p>Company’s PAN : AATCA4725C</p>
+			
+			<table border="1" frame="BOX" rules="NONE" align="right"> 
+				<tr><td>for Additional Lighting Industries PL (S)<br><br>
+					<br><input type="text" name="Name" size="20"><br><br><br><br>
+					<p>Authorised Signatory</p>
+				</td>
+				<tr>
+				
+			</table>
+		</table>
+		<br><br><br><br>
+	</div> <br><br><br><br>
+	<button onclick="generatepdf()">Download Purchase Order</button>
+</body>
+</html>

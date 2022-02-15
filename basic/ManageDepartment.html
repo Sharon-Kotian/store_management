@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="CSS/bootstrap.css">
+	<link rel="stylesheet" href="CSS/bootstrap.min.css">
+	<link rel="stylesheet" href="CSS/bootstrap.rtl.css">
+	<link rel="stylesheet" href="CSS/bootstrap.rtl.min.css">
+	<link rel="stylesheet" href="CSS/bootstrap-grid.css">
+	<link rel="stylesheet" href="CSS/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="CSS/bootstrap-grid.rtl.css">
+	<link rel="stylesheet" href="CSS/bootstrap-grid.rtl.min.css">
+	<link rel="stylesheet" href="CSS/bootstrap-reboot.css">
+	<link rel="stylesheet" href="CSS/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="CSS/bootstrap-reboot.rtl.css">
+	<link rel="stylesheet" href="CSS/bootstrap-reboot.rtl.min.css">
+	<link rel="stylesheet" href="CSS/bootstrap-utilities.css">
+	<link rel="stylesheet" href="CSS/bootstrap-utilities.min.css">
+	<link rel="stylesheet" href="CSS/bootstrap-utilities.rtl.css">
+	<link rel="stylesheet" href="CSS/bootstrap-utilities.rtl.min.css">
+
+	<title>Manage Department</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="CSS/bootstrap.css">
+	<script src="JS/login_jquery.js"></script>
+	<script src="JS/login_bootstrap.js"></script>
+	<script src="JS/addRowButton.js"></script>
+	<link rel="stylesheet" href="CSS/PlacePurchaseOrderLink1.css">
+	<script src="JS/PlacePurchaseOrderLink2.js"></script>
+	<script src="JS/PlacePurchaseOrderLink3.js"></script>
+	<script src="JS/bootstrap.bundle.js"></script>
+	<script src="JS/bootstrap.bundle.min.js"></script>
+	<script src="JS/bootstrap.esm.js"></script>
+	<script src="JS/bootstrap.esm.min.js"></script>
+	<script src="JS/bootstrap.js"></script>
+	<script src="JS/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
+	<SCRIPT>
+	$(document).ready(function(){
+		$("#user_id_delete").select2();
+		$('#but_read').click(function(){
+		var username = $('#user_id_delete option:selected').text();
+		var userid = $('#user_id_delete').val();
+		$('#result').html("id : " + userid + ", name : " + username);
+		});
+	});
+	
+function ShowProduct() {
+    var x = document.getElementById('SectionName');
+	var y = document.getElementById('ProductName');
+    if (x.style.display == 'none') {
+        y.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+function ShowRowMaterial() {
+    var y = document.getElementById('ProductName');
+	var x = document.getElementById('SectionName');
+    if (y.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        y.style.display = 'none';
+    }
+}
+
+</SCRIPT>
+</head>
+<body class="bg-light text-dark">
+<header>
+	<?php 
+    include "../includes/header.php";
+	global $connection;
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	?>
+	
+	<hr style="height:2px" color="black">
+	<h1 class="display-3" align="center">Manage Department</h1>
+</header>
+
+	<a class="btn btn-outline-secondary btn-lg" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+	  Menu >>
+	</a>
+
+	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+	  <div class="offcanvas-header"><br>
+		<h5 class="offcanvas-title" id="offcanvasExampleLabel" align="center">Menu</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	  </div>
+		  <div class="offcanvas-body">			
+			<div class="dropdown mt-3" align="center">
+				  <button class="btn btn-primary btn-lg">
+					Place Purchase Order
+				  </button><br><br>
+				  <button class="btn btn-primary btn-lg">
+					Set New Order Level
+				  </button><br><br>
+				  <button class="btn btn-primary btn-lg">
+					Add New Raw Material
+				  </button>
+			</div>
+		  </div>
+</div>
+	
+<div class="wrapper fadeInDown">
+	<div id="formContent">
+		<p align="center"><input type="button" class="btn btn-primary btn-lg" value="  Add Department  " ONCLICK="ShowRowMaterial()">
+			<input type="button" class="btn btn-primary btn-lg" value=" Delete Department " ONCLICK="ShowProduct()"></p>
+	
+	</div>
+	<DIV ID="SectionName" STYLE="display:none">
+		<table style="width:100%" align="center">
+			<tr>
+				<td align="center" class="form-label"><br><br>Enter Department Name: </td>
+				<td align="center"><br><br><input type="text" id="user_id" name="user_id" style="text-align: center" class="form-control" style="width: 200px; height: 45px;"></td>
+				<td align="center"><br><br><br><p align="center"><input type="button" class="btn btn-primary btn-lg" value=" Add " id="myBtn"></p></td>
+			</tr>
+		</table>	
+		<!--  Toast code -->
+		<div style="position: absolute; bottom: 0; right: 0;"class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="d-flex">
+			  <div class="toast-body" text="center">
+			    Successfully Added!!
+			  </div>
+			  <button type="button"  id="mybtn"class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		  </div>
+	</DIV>
+	
+	<DIV ID="ProductName" STYLE="display:none">
+		<table style="width:100%" align="center">
+			<tr>
+				<td align="center" class="form-label"><br><br>Select Department Name: </td>
+				<td align="center"><br><br><select name="user_id_delete" id="user_id_delete" style="width: 400px; height: 45px;" class="form-select">
+				<option value="Admin">Admin</option>
+				<option value="Stores">Stores</option>
+				<option value="Packing">Packing</option>
+			</select>
+				</td>
+				<td align="left"><br><br><input type="button" id= "clickme" value=" Delete " class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			</tr>
+		</table>
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel" align="center">Confirm</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				  </div>
+				  <div class="modal-body">
+					<table>
+						<tr>
+							<td align="left" class="form-label"> Do you want to delete this Department: </td>
+							<td align="left"><input type="text" id="user_id_delete" class="form-control" name="user_id_delete" value="emp4@abc" readonly></td>
+						</tr>
+					</table>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Confirm Delete</button>
+				  </div>
+				</div>
+			  </div>
+		</div>
+	</DIV>
+</div>
+<!--toast script-->
+<script>
+$(document).ready(function(){
+  $("#myBtn").click(function(){
+    $('.toast').toast('show');
+  });
+});
+</script>
+</body>
+</html>

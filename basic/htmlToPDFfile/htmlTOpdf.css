@@ -1,0 +1,25 @@
+ *{
+    margin-left: 2px;
+	margin-right: 2px;
+    padding: 0px;
+	box-sizing: border-box;
+ }
+ 
+ table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+th, td {
+  padding: 5px;
+  vertical-align: top;
+
+}
+
+h1{
+	text-align: center;
+}
